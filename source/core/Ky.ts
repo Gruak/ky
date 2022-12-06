@@ -91,8 +91,8 @@ export class Ky {
 						return '';
 					}
 
-					const arrayBuffer = await response.clone().arrayBuffer();
-					const responseSize = arrayBuffer.byteLength;
+					const arrayBuffer = await response.clone().arrayBuffer().catch(() => null);
+					const responseSize = arrayBuffer?.byteLength;
 					if (responseSize === 0) {
 						return '';
 					}
